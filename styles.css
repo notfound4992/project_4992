@@ -22,10 +22,11 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Bikin 3 kolom ala IG */
-    gap: 20px; /* Jarak antar foto */
-    max-width: 935px;
-    padding: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Tetap 3 kolom */
+    gap: 10px; /* Jarak antar foto dikecilin dikit biar makin mirip IG */
+    max-width: 600px; /* NAH INI KUNCINYA: Kita batasi lebarnya cuma 600px aja */
+    margin: 20px auto; /* Biar galerinya ada di tengah-tengah layar */
+    padding: 0 10px;
 }
 
 .post {
@@ -35,11 +36,11 @@ header {
     background-color: #eee;
 }
 
-.post img {
+.post {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* INI KUNCINYA: Foto mamas bakal otomatis nge-crop rapi di tengah tanpa rusak rasionya */
-    transition: transform 0.3s;
+    aspect-ratio: 1 / 1; /* Biar tingginya selalu sama dengan lebarnya (KOTAK) */
+    overflow: hidden;
+    border-radius: 4px; /* Bonus: sudutnya agak tumpul dikit biar estetik */
 }
 
 .post img:hover {
