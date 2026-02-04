@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project_4992 - Netflix Style</title>
+    <title>Project_4992 - Private Gallery</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -24,22 +24,22 @@
         <div class="gallery">
             <div class="post" onclick="openPreview('assets/foto1.jpg', 'image')">
                 <img src="assets/foto1.jpg">
-                <p class="caption">Gaya andalan Mas Jo! 😎</p>
+                <p class="caption">Gaya mamas! 😎</p>
             </div>
             
             <div class="post" onclick="openPreview('assets/foto2.jpg', 'image')">
                 <img src="assets/foto2.jpg">
-                <p class="caption">Lagi serius koding nih. 💻</p>
+                <p class="caption">Koding Life 💻</p>
             </div>
 
-            <div class="post" onclick="openPreview('assets/sex.gif', 'image')">
-                <img src="assets/sex.gif">
-                <p class="caption">Mood hari ini 🔥</p>
+            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/zltffd8', 'iframe')">
+                <img src="assets/sex.gif"> 
+                <p class="caption">Test Video Link Luar 🔥</p>
             </div>
 
             <div class="post" onclick="openPreview('assets/foto3.jpg', 'image')">
                 <img src="assets/foto3.jpg">
-                <p class="caption">Project_4992 makin gacor! ✨</p>
+                <p class="caption">Project_4992 Gacor! ✨</p>
             </div>
         </div>
     </div>
@@ -53,7 +53,6 @@
     </div>
 
     <script>
-        // Fungsi Cek Kode
         function checkCode() {
             var code = document.getElementById("passkey").value;
             if (code === "4992") {
@@ -64,32 +63,32 @@
             }
         }
 
-        // Fungsi Buka Preview (Netflix Style)
         function openPreview(src, type) {
             const modal = document.getElementById("preview-modal");
             const container = document.getElementById("preview-container");
             
             if (type === 'image') {
                 container.innerHTML = `<img src="${src}" class="fade-in">`;
-            } else if (type === 'video') {
-                container.innerHTML = `<video controls autoplay class="fade-in"><source src="${src}" type="video/mp4"></video>`;
+            } 
+            else if (type === 'iframe') {
+                // Untuk link situs luar pakai Iframe agar bisa diputar
+                container.innerHTML = `<iframe src="${src}" width="100%" height="450px" frameborder="0" scrolling="no" allowfullscreen class="fade-in"></iframe>`;
+            }
+            else if (type === 'video') {
+                container.innerHTML = `<video controls autoplay class="fade-in" style="width:100%"><source src="${src}" type="video/mp4"></video>`;
             }
             
             modal.style.display = "flex";
         }
 
-        // Fungsi Tutup Preview
         function closePreview() {
             document.getElementById("preview-modal").style.display = "none";
-            document.getElementById("preview-container").innerHTML = ""; // Stop video kalau ditutup
+            document.getElementById("preview-container").innerHTML = ""; 
         }
 
-        // Tutup modal kalau klik di luar area gambar
         window.onclick = function(event) {
             const modal = document.getElementById("preview-modal");
-            if (event.target == modal) {
-                closePreview();
-            }
+            if (event.target == modal) { closePreview(); }
         }
     </script>
 
