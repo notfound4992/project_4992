@@ -33,8 +33,7 @@
             </div>
 
             <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/zltffd8', 'iframe')">
-                <img src="assets/sex.gif"> 
-                <p class="caption">Test Video Link Luar 🔥</p>
+                <img src="assets/sex.gif"> <p class="caption">Preview Video Test 🔥</p>
             </div>
 
             <div class="post" onclick="openPreview('assets/foto3.jpg', 'image')">
@@ -47,13 +46,11 @@
     <div id="preview-modal" class="modal">
         <span class="close-button" onclick="closePreview()">&times;</span>
         <div class="modal-content">
-            <div id="preview-container">
-                </div>
+            <div id="preview-container"></div>
         </div>
     </div>
 
     <script>
-        // Fungsi Cek Password
         function checkCode() {
             var code = document.getElementById("passkey").value;
             if (code === "4992") {
@@ -64,7 +61,6 @@
             }
         }
 
-        // Fungsi Buka Preview
         function openPreview(src, type) {
             const modal = document.getElementById("preview-modal");
             const container = document.getElementById("preview-container");
@@ -73,38 +69,27 @@
                 container.innerHTML = `<img src="${src}" class="fade-in">`;
             } 
             else if (type === 'iframe') {
-                // Pakai Iframe dengan izin sandbox agar video dari situs luar mau muncul
                 container.innerHTML = `
-                    <iframe 
-                        src="${src}" 
-                        width="100%" 
-                        height="450px" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
-                        class="fade-in">
-                    </iframe>`;
+                    <iframe src="${src}" width="100%" height="450px" frameborder="0" allowfullscreen 
+                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
+                    class="fade-in"></iframe>`;
             }
             else if (type === 'video') {
                 container.innerHTML = `<video controls autoplay class="fade-in" style="width:100%"><source src="${src}" type="video/mp4"></video>`;
             }
-            
             modal.style.display = "flex";
         }
 
-        // Fungsi Tutup Preview
         function closePreview() {
             document.getElementById("preview-modal").style.display = "none";
             document.getElementById("preview-container").innerHTML = ""; 
         }
 
-        // Klik di luar area untuk tutup
         window.onclick = function(event) {
             const modal = document.getElementById("preview-modal");
             if (event.target == modal) { closePreview(); }
         }
 
-        // Support Tombol Enter pada Password
         document.getElementById("passkey").addEventListener("keyup", function(event) {
             if (event.key === "Enter") { checkCode(); }
         });
