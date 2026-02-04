@@ -1,8 +1,6 @@
-/* =========================================
-   TEMA DARK NETFLIX (FULL CODE)
-   ========================================= */
+/* TEMA DARK NETFLIX */
 body {
-    background: #141414; /* Hitam khas Netflix */
+    background: #141414;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     color: white;
@@ -12,9 +10,7 @@ body {
     min-height: 100vh;
 }
 
-/* =========================================
-   LOCK SCREEN (GERBANG VIP)
-   ========================================= */
+/* LOCK SCREEN */
 #lock-screen {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -22,7 +18,6 @@ body {
     display: flex; justify-content: center; align-items: center;
     z-index: 9999;
 }
-
 .lock-box {
     text-align: center; 
     background: #181818; 
@@ -32,42 +27,18 @@ body {
     width: 300px;
     border: 1px solid #333;
 }
-
-.lock-box h2 {
-    color: #e50914; /* Merah Netflix */
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
+.lock-box h2 { color: #e50914; letter-spacing: 2px; margin-bottom: 20px; }
 .lock-box input { 
-    padding: 12px; 
-    border-radius: 4px; 
-    border: 1px solid #333; 
-    margin-bottom: 20px; 
-    width: 90%; 
-    background: #333;
-    color: white;
-    text-align: center;
-    font-size: 18px;
+    padding: 12px; border-radius: 4px; border: 1px solid #333; margin-bottom: 20px; 
+    width: 90%; background: #333; color: white; text-align: center; font-size: 18px;
 }
-
 .lock-box button { 
-    padding: 12px 20px; 
-    background: #e50914; 
-    color: white; 
-    border: none; 
-    font-weight: bold; 
-    cursor: pointer; 
-    border-radius: 4px;
-    width: 100%;
-    transition: 0.3s;
+    padding: 12px 20px; background: #e50914; color: white; border: none; 
+    font-weight: bold; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s;
 }
-
 .lock-box button:hover { background: #b20710; }
 
-/* =========================================
-   HEADER & GALLERY
-   ========================================= */
+/* HEADER */
 header {
     background: rgba(0,0,0,0.9);
     color: #e50914;
@@ -77,82 +48,48 @@ header {
     border-bottom: 2px solid #333;
 }
 
+/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px; max-width: 1200px; width: 95%; padding: 40px 10px;
 }
-
 .post {
-    background: #181818; 
-    border-radius: 4px; 
-    overflow: hidden;
-    transition: transform 0.4s ease; 
-    cursor: pointer;
+    background: #181818; border-radius: 4px; overflow: hidden;
+    transition: transform 0.4s ease; cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
-
 .post:hover { 
-    transform: scale(1.05); 
-    z-index: 5; 
+    transform: scale(1.05); z-index: 5; 
     box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
 }
+.post img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.caption { padding: 15px; font-size: 14px; color: white; margin: 0; background: #181818; }
 
-.post img { 
-    width: 100%; 
-    aspect-ratio: 16 / 9; /* Rasio layar lebar ala film */
-    object-fit: cover; 
-}
-
-.caption { 
-    padding: 15px; 
-    font-size: 14px; 
-    color: white; 
-    margin: 0; 
-    background: #181818;
-}
-
-/* =========================================
-   MODAL PREVIEW (LAYAR NONTON)
-   ========================================= */
+/* MODAL PREVIEW */
 .modal {
     display: none; position: fixed; z-index: 10000;
     left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.95);
     justify-content: center; align-items: center;
 }
-
 .modal-content {
-    position: relative; 
-    width: 90%; 
-    max-width: 850px;
-    background: #000; 
-    border-radius: 8px; 
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(0,0,0,1);
-    border: 1px solid #333;
+    position: relative; width: 90%; max-width: 850px;
+    background: #000; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,1); border: 1px solid #333;
 }
-
 #preview-container img { width: 100%; display: block; }
-
 #preview-container iframe, #preview-container video {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    display: block;
+    width: 100%; aspect-ratio: 16 / 9; display: block;
 }
-
 .close-button {
     position: absolute; top: 10px; right: 20px;
     color: white; font-size: 35px; font-weight: bold;
-    cursor: pointer; z-index: 10001;
-    text-shadow: 0 0 10px black;
+    cursor: pointer; z-index: 10001; text-shadow: 0 0 10px black;
 }
-
 .close-button:hover { color: #e50914; }
 
-/* =========================================
-   ANIMASI & RESPONSIF
-   ========================================= */
+/* ANIMASI & RESPONSIF */
 .fade-in { animation: fadeIn 0.5s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
