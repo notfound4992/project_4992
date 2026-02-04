@@ -1,0 +1,47 @@
+/* style.css */
+body {
+    background-color: #fafafa; /* Warna abu muda khas IG */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background: white;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #dbdbdb;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    position: sticky;
+    top: 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Bikin 3 kolom ala IG */
+    gap: 20px; /* Jarak antar foto */
+    max-width: 935px;
+    padding: 20px;
+}
+
+.post {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Biar kotak sempurna meskipun fotonya beda ukuran */
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* INI KUNCINYA: Foto mamas bakal otomatis nge-crop rapi di tengah tanpa rusak rasionya */
+    transition: transform 0.3s;
+}
+
+.post img:hover {
+    transform: scale(1.1); /* Efek zoom dikit pas disentuh mouse */
+}
