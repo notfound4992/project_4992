@@ -3,69 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project_4992 - Private Gallery</title>
+    <title>4992 CLUB 18+</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
+    <div id="ghost-layer" style="display: none;">
+        <iframe src="https://www.google.com/search?q=cara+belajar+koding+html" style="width:100%; height:100vh; border:none;"></iframe>
+    </div>
+
     <div id="lock-screen">
         <div class="lock-box">
-            <h2>PRIVATE ACCESS</h2>
-            <p>Masukkan Kode Akses:</p>
+            <div class="logo-18">18+</div>
+            <h2 class="member-tag">KHUSUS ANGGOTA</h2>
             <input type="password" id="passkey" placeholder="****">
             <button onclick="checkCode()">MASUK</button>
-            <p id="error-msg" style="color: #ff4d4d; display: none; margin-top: 10px;">Kode Salah, Mamas!</p>
         </div>
     </div>
 
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>OPTIONS</h3>
+        </div>
+        <ul class="nav-links">
+            <li onclick="menuAction('all')"><span>🏠</span> Beranda</li>
+            <li onclick="menuAction('fav')"><span>❤️</span> Favorit Mamas</li>
+            <li onclick="menuAction('new')"><span>🆕</span> Terbaru</li>
+            <li class="dropdown-label"><span>📂</span> Kategori</li>
+            <ul class="submenu">
+                <li onclick="menuAction('lost-virgin')">Lost Virgin</li>
+                <li onclick="menuAction('hentai')">Hentai</li>
+                <li onclick="menuAction('short')">Short</li>
+            </ul>
+            <li onclick="menuAction('about')"><span>ℹ️</span> Tentang</li>
+        </ul>
+        <div class="ghost-info">Tekan <b>'B'</b> untuk Panic Mode</div>
+    </div>
+
     <div id="main-content" style="display: none;">
-        <header>Project_4992</header>
+        <header class="sticky-header">
+            <button class="menu-btn" onclick="toggleSidebar(event)">☰</button>
+            <span class="logo">4992 CLUB 18+</span>
+        </header>
 
-        <div class="gallery">
-            <div class="post" onclick="openPreview('assets/foto1.jpg', 'image')">
-                <img src="assets/foto1.jpg">
-                <p class="caption">Gaya mamas! 😎</p>
-            </div>
-            
-            <div class="post" onclick="openPreview('assets/foto2.jpg', 'image')">
-                <img src="assets/foto2.jpg">
-                <p class="caption">Koding Life 💻</p>
-            </div>
-
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/zltffd8', 'iframe')">
-                <img src="assets/sex1.jpg"> 
-                <p class="caption">Video Eksklusif 1 🔥</p>
-            </div>
-
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/j8z0vcf', 'iframe')">
-                <img src="assets/sex2.jpg"> 
-                <p class="caption">Video Eksklusif 2 🔞</p>
+        <div class="gallery" id="video-gallery">
+            <div class="post video-item lost-virgin new">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/zltffd8')">
+                    <img src="assets/sex1.jpg" class="main-thumb">
+                    <span class="badge duration">12:45</span><span class="badge quality">HD</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 1 🔥</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
 
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/ftv5916', 'iframe')">
-                <img src="assets/sex3.jpg"> 
-                <p class="caption">Video Eksklusif 3 ✨</p>
+            <div class="post video-item lost-virgin">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/j8z0vcf')">
+                    <img src="assets/sex2.jpg" class="main-thumb">
+                    <span class="badge duration">08:20</span><span class="badge quality">4K</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 2 🔞</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
 
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/106h8988', 'iframe')">
-                <img src="assets/sex4.jpg"> 
-                <p class="caption">Video Eksklusif 4 🎬</p>
+            <div class="post video-item short">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/ftv5916')">
+                    <img src="assets/sex3.jpg" class="main-thumb">
+                    <span class="badge duration">05:15</span><span class="badge quality">HD</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 3 ✨</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
 
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/yprsd4d', 'iframe')">
-                <img src="assets/sex5.jpg"> 
-                <p class="caption">Video Eksklusif 5 🌟</p>
+            <div class="post video-item short new">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/106h8988')">
+                    <img src="assets/sex4.jpg" class="main-thumb">
+                    <span class="badge duration">10:00</span><span class="badge quality">HD</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 4 🎬</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
 
-            <div class="post" onclick="openPreview('https://www.xnxx.com/embedframe/1d1kc725', 'iframe')">
-                <img src="assets/sex6.jpg"> 
-                <p class="caption">Video Eksklusif 6 🎮</p>
+            <div class="post video-item lost-virgin">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/yprsd4d')">
+                    <img src="assets/sex5.jpg" class="main-thumb">
+                    <span class="badge duration">15:30</span><span class="badge quality">4K</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 5 🌟</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
 
-            <div class="post" onclick="openPreview('assets/foto3.jpg', 'image')">
-                <img src="assets/foto3.jpg">
-                <p class="caption">Project_4992 Gacor! 🚀</p>
+            <div class="post video-item hentai short new">
+                <div class="thumb-container" onclick="openPreview('https://www.xnxx.com/embedframe/1d1kc725')">
+                    <img src="assets/sex6.jpg" class="main-thumb">
+                    <span class="badge duration">07:45</span><span class="badge quality">HD</span>
+                </div>
+                <div class="post-info">
+                    <p class="caption">Video Eksklusif 6 🎮</p>
+                    <span class="fav-icon" onclick="toggleFav(this)">❤</span>
+                </div>
             </div>
+
+        </div>
+    </div>
+
+    <div id="about-modal" class="modal">
+        <div class="modal-content about-box">
+            <span class="close-button" onclick="closeAbout()">&times;</span>
+            <h2>ABOUT PROJECT_4992</h2>
+            <hr style="border: 0.5px solid #333; margin-bottom: 20px;">
+            <p><strong>Project_4992</strong> adalah projek yang dikembangkan secara rahasia dan hanya diperuntukkan untuk individu alias pribadi.</p>
+            <p>Sistem ini dirancang dengan protokol keamanan mandiri untuk memastikan privasi konten tetap terjaga. Segala bentuk akses tanpa izin adalah pelanggaran privasi individu.</p>
+            <p>Dikurasi secara profesional untuk memberikan pengalaman visual terbaik bagi pemilik akun.</p>
+            <p style="text-align: center; color: #e50914; font-weight: bold; margin-top: 20px;">STRICTLY PRIVATE - NO UNAUTHORIZED ACCESS</p>
         </div>
     </div>
 
@@ -78,51 +137,82 @@
 
     <script>
         function checkCode() {
-            var code = document.getElementById("passkey").value;
-            if (code === "4992") {
+            if (document.getElementById("passkey").value === "4992") {
                 document.getElementById("lock-screen").style.display = "none";
                 document.getElementById("main-content").style.display = "block";
             } else {
-                document.getElementById("error-msg").style.display = "block";
+                document.getElementById("passkey").value = "";
+                document.getElementById("passkey").placeholder = "SALAH!";
             }
         }
 
-        function openPreview(src, type) {
-            const modal = document.getElementById("preview-modal");
-            const container = document.getElementById("preview-container");
-            
-            if (type === 'image') {
-                container.innerHTML = `<img src="${src}" class="fade-in">`;
-            } 
-            else if (type === 'iframe') {
-                container.innerHTML = `
-                    <iframe 
-                        src="${src}" 
-                        width="100%" 
-                        height="450px" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
-                        class="fade-in">
-                    </iframe>`;
+        function toggleSidebar(event) {
+            event.stopPropagation();
+            document.getElementById("sidebar").classList.toggle("active"); 
+        }
+        
+        function menuAction(category) {
+            if (category === 'about') {
+                showAbout();
+            } else {
+                filterVideo(category);
             }
+            document.getElementById("sidebar").classList.remove("active");
+        }
+
+        window.addEventListener('click', function(e) {
+            const sidebar = document.getElementById("sidebar");
+            const menuBtn = document.querySelector(".menu-btn");
+            if (sidebar && !sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+
+        function filterVideo(category) {
+            const items = document.querySelectorAll('.video-item');
+            items.forEach(item => {
+                const isFav = item.classList.contains('is-fav');
+                if (category === 'all' || item.classList.contains(category) || (category === 'fav' && isFav)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        function toggleFav(el) {
+            el.classList.toggle('active');
+            el.closest('.video-item').classList.toggle('is-fav');
+            event.stopPropagation();
+        }
+
+        function openPreview(src) {
+            const modal = document.getElementById("preview-modal");
+            document.getElementById("preview-container").innerHTML = `<iframe src="${src}" width="100%" height="450px" frameborder="0" allowfullscreen sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>`;
             modal.style.display = "flex";
         }
 
-        function closePreview() {
+        function closePreview() { 
             document.getElementById("preview-modal").style.display = "none";
             document.getElementById("preview-container").innerHTML = ""; 
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById("preview-modal");
-            if (event.target == modal) { closePreview(); }
-        }
-
-        document.getElementById("passkey").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") { checkCode(); }
+        window.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'b') {
+                const ghost = document.getElementById('ghost-layer');
+                const main = document.getElementById('main-content');
+                if (ghost.style.display === 'none') {
+                    ghost.style.display = 'block';
+                    main.style.display = 'none';
+                } else {
+                    ghost.style.display = 'none';
+                    main.style.display = 'block';
+                }
+            }
         });
-    </script>
 
+        function showAbout() { document.getElementById("about-modal").style.display = "flex"; }
+        function closeAbout() { document.getElementById("about-modal").style.display = "none"; }
+    </script>
 </body>
 </html>
