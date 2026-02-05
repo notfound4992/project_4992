@@ -32,9 +32,7 @@ body {
     padding: 12px 20px; background: #e50914; color: white; border: none; 
     font-weight: bold; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s;
 }
-.lock-box button:hover { background: #b20710; }
 
-/* HEADER */
 header {
     background: rgba(0,0,0,0.9);
     color: #e50914; width: 100%; padding: 20px 0; text-align: center;
@@ -42,7 +40,6 @@ header {
     position: sticky; top: 0; z-index: 10; border-bottom: 2px solid #333;
 }
 
-/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -53,14 +50,10 @@ header {
     transition: transform 0.4s ease; cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
-.post:hover { 
-    transform: scale(1.05); z-index: 5; 
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
-}
+.post:hover { transform: scale(1.05); z-index: 5; box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
 .post img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .caption { padding: 15px; font-size: 14px; color: white; margin: 0; background: #181818; }
 
-/* MODAL PREVIEW */
 .modal {
     display: none; position: fixed; z-index: 10000;
     left: 0; top: 0; width: 100%; height: 100%;
@@ -72,7 +65,7 @@ header {
     background: #000; border-radius: 8px; overflow: hidden;
     box-shadow: 0 0 50px rgba(0,0,0,1); border: 1px solid #333;
 }
-#preview-container iframe, #preview-container video, #preview-container img {
+#preview-container iframe, #preview-container img {
     width: 100%; aspect-ratio: 16 / 9; display: block;
 }
 .close-button {
@@ -81,7 +74,6 @@ header {
     cursor: pointer; z-index: 10001;
 }
 
-/* ANIMASI & RESPONSIF */
 .fade-in { animation: fadeIn 0.5s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
