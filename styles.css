@@ -1,32 +1,28 @@
-/* --- RESET & BASE --- */
-body { 
-    background: #141414; 
-    font-family: 'Helvetica Neue', Arial, sans-serif; 
-    margin: 0; 
-    color: white; 
-    overflow-x: hidden; 
-}
+body { background: #141414; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: white; overflow-x: hidden; }
 
-/* --- LAYAR KUNCI (LOCK SCREEN) --- */
+/* --- LAYAR KUNCI (MAKIN BENING & JELAS) --- */
 #lock-screen { 
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: #000; display: flex; justify-content: center; 
-    align-items: center; z-index: 20000; 
+    background: rgba(0, 0, 0, 0.2); /* Sangat transparan (0.4 -> 0.2) */
+    backdrop-filter: blur(4px);    /* Blur tipis banget (8px -> 4px) biar galeri JELAS */
+    -webkit-backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center; 
+    z-index: 20000; transition: opacity 0.5s ease;
 }
+
+/* Box login dibuat sedikit lebih solid biar tetap terbaca */
 .lock-box { 
-    text-align: center; background: #111; padding: 40px; 
-    border-radius: 12px; border: 1px solid #333; width: 300px; 
+    text-align: center; background: rgba(10, 10, 10, 0.9); padding: 40px; 
+    border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); 
+    width: 300px; box-shadow: 0 25px 50px rgba(0,0,0,1);
 }
+
 .logo-18 { 
-    width: 80px; height: 80px; border: 5px solid #e50914; 
-    border-radius: 50%; display: flex; justify-content: center; 
-    align-items: center; margin: 0 auto 20px; color: #e50914; 
-    font-size: 28px; font-weight: 900; 
+    width: 80px; height: 80px; border: 5px solid #e50914; border-radius: 50%; 
+    display: flex; justify-content: center; align-items: center; 
+    margin: 0 auto 20px; color: #e50914; font-size: 28px; font-weight: 900; 
 }
-.member-tag { 
-    color: white; font-size: 18px; letter-spacing: 3px; 
-    margin-bottom: 30px; font-weight: bold; 
-}
+.member-tag { color: white; font-size: 18px; letter-spacing: 3px; margin-bottom: 30px; font-weight: bold; }
 .lock-box input { 
     padding: 12px; border-radius: 4px; border: none; margin-bottom: 15px; 
     width: 90%; background: #222; color: white; text-align: center; font-size: 18px; 
@@ -36,73 +32,40 @@ body {
     font-weight: bold; width: 90%; cursor: pointer; border-radius: 4px; 
 }
 
-/* --- SIDEBAR (COMPACT & SCROLLABLE) --- */
+/* --- SIDEBAR --- */
 .sidebar { 
     position: fixed; left: -240px; top: 0; width: 240px; height: 100%; 
     background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(20px); 
-    transition: 0.3s ease; z-index: 3000; 
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex; flex-direction: column;
-    overflow-y: auto; /* BIAR BISA DI-SKROL */
+    transition: 0.3s ease; z-index: 3000; border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex; flex-direction: column; overflow-y: auto;
 }
-/* Scrollbar Halus */
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-
 .sidebar.active { left: 0; }
 .sidebar-header { padding: 30px 15px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .sidebar-header h3 { color: #e50914; letter-spacing: 3px; font-weight: 900; margin: 0; font-size: 16px; }
 
 .nav-links { list-style: none; padding: 10px; margin: 0; }
 .nav-links li { 
-    padding: 10px 15px; cursor: pointer; transition: 0.2s; 
-    border-radius: 6px; margin-bottom: 3px; color: #ffffff; 
-    font-weight: 500; font-size: 14px; display: flex; align-items: center;
+    padding: 10px 15px; cursor: pointer; transition: 0.2s; border-radius: 6px; 
+    margin-bottom: 3px; color: #ffffff; font-weight: 500; font-size: 14px; 
+    display: flex; align-items: center;
 }
-.nav-links li span { margin-right: 10px; font-size: 16px; }
 .nav-links li:hover { background: rgba(229, 9, 20, 0.2); color: #e50914; }
 
-.dropdown-label { 
-    font-size: 11px; color: #666; text-transform: uppercase; 
-    margin: 20px 0 5px 15px; letter-spacing: 1.5px; font-weight: bold; 
-}
-.submenu { list-style: none; padding-left: 15px; margin-bottom: 20px; }
-.submenu li { 
-    font-size: 13px; padding: 8px 15px; color: #aaa; 
-    cursor: pointer; border-radius: 4px;
-}
-.submenu li:hover { color: white; background: rgba(255,255,255,0.05); }
-
-.ghost-info { 
-    margin-top: auto; padding: 20px; text-align: center; 
-    font-size: 10px; color: #333; border-top: 1px solid rgba(255,255,255,0.05); 
-}
-
-/* --- HEADER STICKY --- */
+/* --- HEADER --- */
 .sticky-header { 
-    background: rgba(0,0,0,0.9); padding: 15px 20px; display: flex; 
-    align-items: center; position: sticky; top: 0; z-index: 2000; 
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.9); padding: 15px 20px; display: flex; align-items: center; 
+    position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.menu-btn { background: none; border: none; color: white; font-size: 28px; cursor: pointer; margin-right: 20px; }
 .logo { color: #e50914; font-weight: 900; font-size: 20px; letter-spacing: 2px; }
 
 /* --- GALLERY --- */
-.gallery { 
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 30px; padding: 40px; 
-}
-.post { background: #181818; border-radius: 8px; overflow: hidden; position: relative; transition: 0.3s; cursor: pointer; }
-.post:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.6); border: 1px solid #e50914; }
-
-.thumb-container { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding: 40px; }
+.post { background: #181818; border-radius: 8px; overflow: hidden; position: relative; transition: 0.3s; }
+.post:hover { transform: translateY(-5px); border: 1px solid #e50914; }
+.thumb-container { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: pointer; }
 .main-thumb { width: 100%; height: 100%; object-fit: cover; }
 
-/* BADGES */
-.badge { 
-    position: absolute; background: rgba(0,0,0,0.8); padding: 5px 10px; 
-    border-radius: 4px; font-size: 11px; font-weight: bold; z-index: 5; 
-}
+.badge { position: absolute; background: rgba(0,0,0,0.8); padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; z-index: 5; }
 .duration { bottom: 10px; right: 10px; border-left: 3px solid #e50914; }
 .quality { top: 10px; right: 10px; background: #e50914; }
 
@@ -112,24 +75,8 @@ body {
 .fav-icon.active { color: #e50914; }
 
 /* --- MODAL --- */
-.modal { 
-    display: none; position: fixed; z-index: 10000; left: 0; top: 0; 
-    width: 100%; height: 100%; background: rgba(0,0,0,0.95); 
-    justify-content: center; align-items: center; 
-}
-.modal-content { 
-    background: #000; width: 95%; max-width: 900px; 
-    border-radius: 12px; position: relative; border: 1px solid #333; 
-}
-.about-box { padding: 40px; color: #ccc; line-height: 1.6; }
-.close-button { 
-    position: absolute; top: 15px; right: 20px; color: white; 
-    font-size: 35px; cursor: pointer; z-index: 101; 
-}
+.modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+.modal-content { background: #000; width: 95%; max-width: 900px; border-radius: 12px; position: relative; border: 1px solid #333; }
+.close-button { position: absolute; top: 15px; right: 20px; color: white; font-size: 35px; cursor: pointer; z-index: 101; }
 
-/* GHOST LAYER */
-#ghost-layer { position: fixed; top:0; left:0; width:100%; height:100%; z-index: 50000; }
-
-@media (max-width: 768px) { 
-    .gallery { grid-template-columns: 1fr; padding: 20px; } 
-}
+@media (max-width: 768px) { .gallery { grid-template-columns: 1fr; padding: 20px; } }

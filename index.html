@@ -12,35 +12,7 @@
         <iframe src="https://www.google.com/search?q=cara+belajar+koding+html" style="width:100%; height:100vh; border:none;"></iframe>
     </div>
 
-    <div id="lock-screen">
-        <div class="lock-box">
-            <div class="logo-18">18+</div>
-            <h2 class="member-tag">KHUSUS ANGGOTA</h2>
-            <input type="password" id="passkey" placeholder="****">
-            <button onclick="checkCode()">MASUK</button>
-        </div>
-    </div>
-
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h3>OPTIONS</h3>
-        </div>
-        <ul class="nav-links">
-            <li onclick="menuAction('all')"><span>🏠</span> Beranda</li>
-            <li onclick="menuAction('fav')"><span>❤️</span> Favorit Mamas</li>
-            <li onclick="menuAction('new')"><span>🆕</span> Terbaru</li>
-            <li class="dropdown-label"><span>📂</span> Kategori</li>
-            <ul class="submenu">
-                <li onclick="menuAction('lost-virgin')">Lost Virgin</li>
-                <li onclick="menuAction('hentai')">Hentai</li>
-                <li onclick="menuAction('short')">Short</li>
-            </ul>
-            <li onclick="menuAction('about')"><span>ℹ️</span> Tentang</li>
-        </ul>
-        <div class="ghost-info">Tekan <b>'B'</b> untuk Panic Mode</div>
-    </div>
-
-    <div id="main-content" style="display: none;">
+    <div id="main-content">
         <header class="sticky-header">
             <button class="menu-btn" onclick="toggleSidebar(event)">☰</button>
             <span class="logo">4992 CLUB 18+</span>
@@ -112,8 +84,33 @@
                     <span class="fav-icon" onclick="toggleFav(this)">❤</span>
                 </div>
             </div>
-
         </div>
+    </div>
+
+    <div id="lock-screen">
+        <div class="lock-box">
+            <div class="logo-18">18+</div>
+            <h2 class="member-tag">KHUSUS ANGGOTA</h2>
+            <input type="password" id="passkey" placeholder="****">
+            <button onclick="checkCode()">MASUK</button>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header"><h3>OPTIONS</h3></div>
+        <ul class="nav-links">
+            <li onclick="menuAction('all')"><span>🏠</span> Beranda</li>
+            <li onclick="menuAction('fav')"><span>❤️</span> Favorit Mamas</li>
+            <li onclick="menuAction('new')"><span>🆕</span> Terbaru</li>
+            <li class="dropdown-label"><span>📂</span> Kategori</li>
+            <ul class="submenu">
+                <li onclick="menuAction('lost-virgin')">Lost Virgin</li>
+                <li onclick="menuAction('hentai')">Hentai</li>
+                <li onclick="menuAction('short')">Short</li>
+            </ul>
+            <li onclick="menuAction('about')"><span>ℹ️</span> Tentang</li>
+        </ul>
+        <div class="ghost-info">Tekan <b>'B'</b> untuk Panic Mode</div>
     </div>
 
     <div id="about-modal" class="modal">
@@ -122,24 +119,22 @@
             <h2>ABOUT PROJECT_4992</h2>
             <hr style="border: 0.5px solid #333; margin-bottom: 20px;">
             <p><strong>Project_4992</strong> adalah projek yang dikembangkan secara rahasia dan hanya diperuntukkan untuk individu alias pribadi.</p>
-            <p>Sistem ini dirancang dengan protokol keamanan mandiri untuk memastikan privasi konten tetap terjaga. Segala bentuk akses tanpa izin adalah pelanggaran privasi individu.</p>
-            <p>Dikurasi secara profesional untuk memberikan pengalaman visual terbaik bagi pemilik akun.</p>
             <p style="text-align: center; color: #e50914; font-weight: bold; margin-top: 20px;">STRICTLY PRIVATE - NO UNAUTHORIZED ACCESS</p>
         </div>
     </div>
 
     <div id="preview-modal" class="modal">
         <span class="close-button" onclick="closePreview()">&times;</span>
-        <div class="modal-content">
-            <div id="preview-container"></div>
-        </div>
+        <div class="modal-content"><div id="preview-container"></div></div>
     </div>
 
     <script>
         function checkCode() {
             if (document.getElementById("passkey").value === "4992") {
-                document.getElementById("lock-screen").style.display = "none";
-                document.getElementById("main-content").style.display = "block";
+                const lock = document.getElementById("lock-screen");
+                lock.style.opacity = "0";
+                lock.style.pointerEvents = "none";
+                setTimeout(() => { lock.style.display = "none"; }, 500);
             } else {
                 document.getElementById("passkey").value = "";
                 document.getElementById("passkey").placeholder = "SALAH!";
@@ -152,21 +147,9 @@
         }
         
         function menuAction(category) {
-            if (category === 'about') {
-                showAbout();
-            } else {
-                filterVideo(category);
-            }
+            if (category === 'about') { showAbout(); } else { filterVideo(category); }
             document.getElementById("sidebar").classList.remove("active");
         }
-
-        window.addEventListener('click', function(e) {
-            const sidebar = document.getElementById("sidebar");
-            const menuBtn = document.querySelector(".menu-btn");
-            if (sidebar && !sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-                sidebar.classList.remove("active");
-            }
-        });
 
         function filterVideo(category) {
             const items = document.querySelectorAll('.video-item');
@@ -200,14 +183,7 @@
         window.addEventListener('keydown', function(e) {
             if (e.key.toLowerCase() === 'b') {
                 const ghost = document.getElementById('ghost-layer');
-                const main = document.getElementById('main-content');
-                if (ghost.style.display === 'none') {
-                    ghost.style.display = 'block';
-                    main.style.display = 'none';
-                } else {
-                    ghost.style.display = 'none';
-                    main.style.display = 'block';
-                }
+                ghost.style.display = (ghost.style.display === 'none') ? 'block' : 'none';
             }
         });
 
